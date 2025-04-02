@@ -12,10 +12,17 @@ RUN addgroup -g ${GROUP_ID} demo \
 #copy files
 COPY --chown=demo . /app/
 
+RUN pip install --upgrade pip
+RUN pip install --no-build-isolation --no-cache-dir -r requirements.txt
+
 #install depedencies
-RUN apk add --no-cache --virtual .build-deps gcc libc-dev make \
+RUN apk add --no-cache --virtual .build-deps \
+        gcc libc-dev make \
+        python3-dev py3-pip \
+        libffi-dev cython \
+    && pip install --upgrade pip setuptools wheel cython \
     && pip install --no-cache-dir -r requirements.txt \
-    && apk del .build-deps gcc libc-dev make
+    && apk del .build-deps
 
 USER demo
 
