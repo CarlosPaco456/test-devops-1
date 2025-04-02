@@ -2,8 +2,9 @@ name: FASTAPI DEMO DEVOPS
 
 on:
   push:
-    - master
-    - develop
+    branches:
+      - master
+      - develop
 
 jobs:
   ci:
