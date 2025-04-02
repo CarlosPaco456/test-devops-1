@@ -15,8 +15,10 @@ jobs:
       
       - name: install dependencies
         run: |
-          pip3 install --upgrade pip
-          pip3 ginstall --prefer-binary --no-build-isolation --no-cache-dir -r requirements.txt
+          apt update && apt upgrade -y
+          apt install --no-cache --virtual .build-deps gcc libc-dev make python3-dev py3-pip libffi-dev cython
+          pip3 install --upgrade pip setuptools wheel cython
+          pip3 install --no-cache-dir -r requirements.txt
 
       - name: unittest
         run: |
