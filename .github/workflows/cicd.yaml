@@ -16,7 +16,7 @@ jobs:
       - name: install dependencies
         run: |
           pip3 install --upgrade pip setuptools wheel cython
-          pip3 install --no-cache-dir -r requirements.txt
+          pip3 install --no-cache-dir --prefer-binary -r requirements.txt
 
       - name: unittest
         run: |
