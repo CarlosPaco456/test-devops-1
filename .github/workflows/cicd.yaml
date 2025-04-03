@@ -17,6 +17,7 @@ jobs:
         run: |
           pip3 install --only-binary :all: -r requirements.txt
           pip install --upgrade pydantic fastapi
+          pip install --upgrade fastapi starlette
 
       - name: unittest
         run: |
