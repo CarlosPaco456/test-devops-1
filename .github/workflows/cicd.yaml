@@ -16,6 +16,7 @@ jobs:
       - name: install dependencies
         run: |
           pip3 install --only-binary :all: -r requirements.txt
+          pip install --upgrade pydantic fastapi
 
       - name: unittest
         run: |
