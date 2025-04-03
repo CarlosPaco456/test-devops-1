@@ -36,4 +36,4 @@ uvicorn==0.18.3
 uvloop==0.18.0
 watchfiles==0.17.0
 websockets==11.0
-wrapt==1.14.1
+wrapt==1.15.0
