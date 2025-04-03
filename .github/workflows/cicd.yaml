@@ -17,6 +17,8 @@ jobs:
         run: |
           pip uninstall -y anyio fastapi starlette pydantic watchfiles
           pip install --only-binary :all: -r requirements.txt
+          pip uninstall -y typing_extensions
+          pip install --only-binary :all: typing_extensions==4.2.0
 
       - name: unittest
         run: |
